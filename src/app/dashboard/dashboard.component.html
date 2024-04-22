@@ -1,0 +1,6 @@
+<h2>Top Subjects</h2>
+<div class="subjects-menu">
+    <a *ngFor="let subject of subjects" routerLink="/detail/{{subject.id}}">
+        {{subject.name}}
+    </a>
+</div>

@@ -1,0 +1,20 @@
+<!--<h2>{{subject.name | uppercase}} Details</h2>
+<div><span>id: </span>{{subject.id}}</div>
+<div><span>name: </span>{{subject.name}}</div>
+
+<div>
+    <label for="name">Subject Name:</label>
+    <input id="name" [(ngModel)]="subject.name" placeholder="name">
+</div>-->
+<h2>Subjects</h2>
+<ul class="subjects">
+    <li *ngFor="let subject of subjects">
+        <!--<button [class.selected]="subject === selectedSubject" type="button" (click)="onSelect(subject)">
+            <span class="badge">{{subject.id}}</span>
+            <span class="name">{{subject.name}}</span>
+        </button>-->
+        <a routerLink="/detail/{{subject.id}}">
+            <span class="badge">{{subject.id}}</span> {{subject.name}}
+        </a>
+    </li>
+</ul>

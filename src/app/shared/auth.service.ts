@@ -30,9 +30,28 @@ export class AuthService {
         })
     }
     
-   
-
     //Register
-
+    register(email: string, password: string)
+    {
+        this.fireAuth.createUserWithEmailAndPassword(email, password).then(res => {
+            alert("User has been successfully created");
+            this.router.navigate(['login']);
+        },
+        err => {
+            alert(err.message);
+            this.router.navigate(['register']);
+            }
+        )
+       
+    }
     //Forget Password
+    forgetPassword(email: string)
+    {
+        this.fireAuth.sendPasswordResetEmail(email).then( () => {
+            this.router.navigate(['/login']);
+        },
+        err => {
+            alert('Something has gone wrong');
+        })
+    }
 }

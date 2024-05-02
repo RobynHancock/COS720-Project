@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 
-import { environment } from '../environments/environment';
+import {environment } from '../environments/environment';
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 
@@ -15,6 +15,8 @@ import { SubjectDetailComponent } from './subject-detail/subject-detail.componen
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -24,14 +26,16 @@ import { LoginComponent } from './login/login.component';
     SubjectDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotPasswordComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule,
     AngularFirestoreModule
   ],
   providers: [],

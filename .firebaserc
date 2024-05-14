@@ -1,6 +1,7 @@
 {
   "projects": {
-    "first": "cos720-project"
+    "first": "cos720-project",
+    "default": "cos720-project"
   },
   "targets": {},
   "etags": {}

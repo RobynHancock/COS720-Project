@@ -1,0 +1,24 @@
+<div class="submit-form">
+    @if (!submitted) {
+        <div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" required [(ngModel)]="subreg.email" name="email" />
+            </div>
+        </div>
+        <div class="list row">
+            <div class="col-md-6">
+                <ul class="list group">
+                    @for (subject of subjects; track subject.key; let i = $index) {
+                        <p class="list-group-item">
+                            <mat-checkbox class="form-control" id="code" required [(ngModel)]="subject.code" name="code"
+                                [class.active]="i == currentIndex">{{subject.code}}
+                            </mat-checkbox>
+                        </p>
+                    }
+                </ul>
+                <button (click)="saveSubjectRegistration()">Register</button>                
+            </div>
+        </div>
+    }
+</div>

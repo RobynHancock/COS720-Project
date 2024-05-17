@@ -10,8 +10,12 @@ import { SubjectService } from '../subject.service';
   styleUrl: './subject-detail.component.css'
 })
 export class SubjectDetailComponent implements OnInit {
+  constructor() {}
+  ngOnInit(): void {
+      
+  }
   //@Input() subject?: Subject;
-  subject: Subject | undefined;
+  /*subject: Subject | undefined;
   constructor(
     private route: ActivatedRoute,
     private subjectService: SubjectService,
@@ -30,5 +34,5 @@ export class SubjectDetailComponent implements OnInit {
 
   goBack(): void{
     this.location.back();
-  }
+  }*/
 }

@@ -1,0 +1,34 @@
+<div *ngIf="currentSubject" class="edit-form">
+    <h4>Subject</h4>
+    <form>
+        <div class="form-group">
+            <label for="code">Code</label>
+            <input 
+                type="text"
+                class="form-control"
+                id="code"
+                [(ngModel)]="currentSubject.code"
+                name="code"
+                />
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input 
+                type="text"
+                class="form-control"
+                id="name"
+                [(ngModel)]="currentSubject.name"
+                name="name"
+                />
+        </div>
+
+    </form>
+    <button class="badge badge-danger mr-2" (click)="deleteSubject()">Delete</button>
+    <button type="submit" class="badge badge-success" (click)="updateSubject()">Update</button>
+    <p>{{message}}</p>
+
+    <div *ngIf="!currentSubject">
+        <br />
+        <p>Cannot access subject</p>
+    </div>
+</div>

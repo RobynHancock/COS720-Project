@@ -22,6 +22,11 @@ Always export the component class so you can import it
 elsewhere... like in AppModule.*/
 
 export class SubjectsComponent implements OnInit{
+
+  constructor() {}
+  ngOnInit(): void {
+      
+  }
   /*subject: Subject ={
     id: 'COS720',
     name: 'Computer Security'
@@ -29,7 +34,7 @@ export class SubjectsComponent implements OnInit{
   //subjects = SUBJECTS;
   //selectedSubject?: Subject;
 
-  subjects: Subject[] = [];
+  /*subjects: Subject[] = [];
 
   
 

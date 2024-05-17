@@ -1,0 +1,30 @@
+<div class="displayTable">
+    <div class="displayTableCell">
+        <div class="authBlock">
+            <h3>Sign Up</h3>
+            <div class="formGroup">
+                <input type="text" class="formControl" placeholder="name" [(ngModel)]="user.name" #name required />
+            </div>
+            <div class="formGroup">
+                <input type="text" class="formControl" placeholder="student Number" [(ngModel)]="user.studentNumber" #studentNumber required />
+            </div>
+            <div class="formGroup">
+                <input type="email" class="formControl" placeholder="email" #userEmail required />
+            </div>
+            <div class="formGroup">
+                <input type="password" class="formControl" placeholder="password" #userPassword required/>
+            </div>
+            <div class="formGroup">
+                <input type="button" class="btn btnPrimary" value="Sign Up" (click)="[authService.SignUp(userEmail.value, userPassword.value), saveUser()]" />
+            </div>
+            <div class="formGroup">
+                <span class="or"><span class="orInner">Or</span></span>
+            </div>
+        </div>
+        <div class="redirectToLogin">
+            <span>Already Have an Account?
+                <span class="redirect" routerLink="/sign-in"><button>Log In</button></span>
+            </span>
+        </div>
+    </div>
+</div>

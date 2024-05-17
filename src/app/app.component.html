@@ -177,13 +177,34 @@
   }
 </style>
 
-<h1>{{title}}</h1>
-<nav>
+<!--<h1>{{title}}</h1>-->
+<!--<nav>
   <a routerLink="/dashboard">Dashboard</a>
   <a routerLink="/subjects">Subjects</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+</nav>-->
+<!--<app-navbar></app-navbar>
+<router-outlet></router-outlet>-->
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">COS720</a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="subject" class="nav-link">Subjects</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="add" class="nav-link">Add</a>
+      </li>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <h3>{{title}}</h3>
+    <router-outlet></router-outlet>
+    <!--<app-login></app-login>
+    <app-register></app-register>-->
+  </div>
+</div>
+<!--<app-messages></app-messages>-->
 
 <!--<main class="main">
   <div class="content">

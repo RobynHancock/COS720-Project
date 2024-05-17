@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from '../subject';
-import { SubjectService } from '../subject.service';
+import { AuthService } from '../shared/auth.service';
+//import { Subject } from '../subject';
+//import { SubjectService } from '../subject.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,15 +9,21 @@ import { SubjectService } from '../subject.service';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-  subjects: Subject[] = [];
 
-  constructor(private subjectService: SubjectService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
-      this.getSubjects();
+      
   }
+  //subjects: Subject[] = [];
 
-  getSubjects(): void{
+  //constructor(private subjectService: SubjectService) {}
+
+  /*ngOnInit(): void {
+      //this.getSubjects();
+  }*/
+
+  /*getSubjects(): void{
     this.subjectService.getSubjects().subscribe(subjects => this.subjects.slice(1, 5));
-  }
+  }*/
 }

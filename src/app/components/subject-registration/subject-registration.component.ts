@@ -4,9 +4,13 @@ import { SubjectRegistrationService } from '../../shared/services/subject-regist
 import { SubjectService } from '../../subject.service';
 import { Subject } from '../../models/subjects.model';
 import { map } from 'rxjs';
+import { AuthService } from '../../shared/auth.service';
+import { UserService } from '../../shared/services/user.service';
+import { User } from '../../models/user.model';
 
 import{MatCheckboxModule} from '@angular/material/checkbox';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-subject-registration',
@@ -20,12 +24,17 @@ export class SubjectRegistrationComponent implements OnInit {
   subjects?: Subject[];
   currentSubject?: Subject;
   currentIndex = -1;
+  allSubjects?: any[];
   code = '';
+  user = '';
 
-  constructor(private srService: SubjectRegistrationService, private subService: SubjectService) {}
+  constructor(private userService: UserService, private srService: SubjectRegistrationService, private subService: SubjectService, public authService: AuthService) {}
 
   ngOnInit(): void {
       this.retrieveSubjects();
+      this.user = this.authService.getStudentNumber();
+      //this.user = this.authService.getUserEmail;
+      //this.subreg.uid = this.user;
   }
 
   refreshList(): void {
@@ -33,6 +42,7 @@ export class SubjectRegistrationComponent implements OnInit {
     this.currentIndex = -1;
     this.retrieveSubjects();
   }
+
 
   retrieveSubjects(): void {
     this.subService.getAll().snapshotChanges().pipe(

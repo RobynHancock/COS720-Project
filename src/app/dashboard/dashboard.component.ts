@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
+import { AddSubjectComponent } from '../subjects/add-subject/add-subject.component';
+import { SubjectDetailsComponent } from '../subjects/subject-details/subject-details.component';
+import { SubjectService } from '../subject.service';
+import { Subject } from '../models/subjects.model';
+import { SubjectsListComponent } from '../subjects/subjects-list/subjects-list.component';
+import { map } from 'rxjs';
 //import { Subject } from '../subject';
 //import { SubjectService } from '../subject.service';
 
@@ -10,20 +16,40 @@ import { AuthService } from '../shared/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public authService: AuthService) {}
+  subjects?: Subject[];
+  currentSubject?: Subject;
+  currentIndex = -1;
+  code = '';
+
+  constructor(private subService: SubjectService, public authService: AuthService) {}
 
   ngOnInit(): void {
-      
+      this.retrieveSubjects();
   }
-  //subjects: Subject[] = [];
 
-  //constructor(private subjectService: SubjectService) {}
+  refreshList(): void {
+    this.currentSubject = undefined;
+    this.currentIndex = -1;
+    this.retrieveSubjects();
+  }
 
-  /*ngOnInit(): void {
-      //this.getSubjects();
-  }*/
+  retrieveSubjects(): void {
+    this.subService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({key: c.payload.key, ... c.payload.val() })
+        )
+      )
+    ).subscribe(data => { this.subjects = data; });
+  }
 
-  /*getSubjects(): void{
-    this.subjectService.getSubjects().subscribe(subjects => this.subjects.slice(1, 5));
-  }*/
+  setActiveSubject(subject: Subject, index: number): void {
+    this.currentSubject = subject;
+    this.currentIndex = index;
+  }
+
+  removeAllSubjects(): void {
+    this.subService.deleteAll().then(() => this.refreshList())
+    .catch(err => console.log(err));
+  }
 }

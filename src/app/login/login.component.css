@@ -1,0 +1,38 @@
+/* Bordered Form */
+form {
+    border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=email], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/*set a style for all buttons */
+button {
+    color: white;
+    padding: 14 px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+}
+
+.signin-content {
+    padding: 60px 1rem;
+}
+
+.full-width-input{
+    width: 100%;
+}

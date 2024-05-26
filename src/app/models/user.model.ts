@@ -3,5 +3,6 @@ export class User {
     email?: string;
     name?: string;
     studentNumber?: string;
-    emailVerified?: boolean
+    emailVerified?: boolean;
+    subjects?: any[];
 }

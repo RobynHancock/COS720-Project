@@ -1,4 +1,5 @@
 export class SubjectRegistration {
-    email?: string;
-    subjects?: string;
+    uid?: string;
+    studentNumber?: string;
+    subjects?: string[];
 }

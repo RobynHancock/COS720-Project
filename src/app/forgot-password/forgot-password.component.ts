@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -6,16 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './forgot-password.component.css'
 })
 export class ForgotPasswordComponent {
-  email: string = "";
+  constructor(public authService: AuthService) {}
 
-  constructor() {}
-
-  ngOnInit(): void {
-    throw new Error("Method not implemented");
-  }
-
-  forgotPassword() {
-    this.email = '';
-  }
+  ngOnInit() {}
 
 }

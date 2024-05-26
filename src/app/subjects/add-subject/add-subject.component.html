@@ -1,28 +1,57 @@
-<div class="submit-form">
-    <div *ngIf="!submitted">
-        <div class="form-group">
-            <label for="code">Code</label>
-            <input 
-                type="text"
-                class="form-control"
-                id="code"
-                required
-                [(ngModel)]="subject.code"
-                name="code" />
-        </div>
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input  class="form-control"
-                id="name"
-                required
-                [(ngModel)]="subject.name"
-                name="name" />
-        </div>
-        <button (click)="saveSubject()" class="btn btn-success">Submit</button>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="w3-bar w3-theme">
+      <a routerLink="/dashboard" class="w3-bar-item w3-button w3-padding-16">Home</a>
+      <a routerLink="/subject-registration" class="w3-bar-item w3-button w3-padding-16">Module Sign-Up</a>
+      <a routerLink="/add-subject" class="w3-bar-item w3-button w3-padding-16">Add Modules</a>
+      <a routerLink="/sign-in" class="w3-bar-item w3-button w3-padding-16" (click)="authService.SignOut()">Log Out</a>
     </div>
 
-    <div *ngIf="submitted">
-        <h4>Submit Successful</h4>
-        <button class="btn btn-success" (click)="newSubject()">Add</button>
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="code">Code</label>
+                <input 
+                    type="text"
+                    class="form-control"
+                    id="code"
+                    required
+                    [(ngModel)]="subject.code"
+                    name="code" />
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input  class="form-control"
+                    id="name"
+                    required
+                    [(ngModel)]="subject.name"
+                    name="name" />
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input  class="form-control"
+                  id="description"
+                  required
+                  [(ngModel)]="subject.description"
+                  name="description" />
+          </div>
+            <button (click)="saveSubject()" class="btn btn-success">Submit</button>
+        </div>
+    
+        <div *ngIf="submitted">
+            <h4>Submit Successful</h4>
+            <button class="btn btn-success" (click)="newSubject()">Add</button>
+        </div>
     </div>
-</div>
+</body>
+</html>

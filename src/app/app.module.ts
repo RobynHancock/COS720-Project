@@ -27,7 +27,6 @@ import { AngularFireDatabaseModule} from '@angular/fire/compat/database'
 
 //My Components
 //import { SubjectsComponent } from './subjects/subjects.component';
-//import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
 
 import { MessagesComponent } from './messages/messages.component';
 
@@ -41,20 +40,17 @@ import { AddSubjectComponent } from './subjects/add-subject/add-subject.componen
 import { SubjectsListComponent } from './subjects/subjects-list/subjects-list.component';
 import { SubjectDetailsComponent } from './subjects/subject-details/subject-details.component';
 import { AuthService } from './shared/auth.service';
-import { GoogleSsoDirective } from './google-sso.directive';
 import { RequireAuthComponent } from './require-auth/require-auth.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { SubjectRegistrationComponent } from './components/subject-registration/subject-registration.component';
-//import { ForgotEmailComponent } from './components/forgot-email/forgot-email.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     //SubjectsComponent,
-    //SubjectDetailComponent,
     MessagesComponent,
     DashboardComponent,
     //LoginComponent,
@@ -70,7 +66,6 @@ import { SubjectRegistrationComponent } from './components/subject-registration/
     SignInComponent,
     SignUpComponent,
     SubjectRegistrationComponent,
-    //ForgotEmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +83,8 @@ import { SubjectRegistrationComponent } from './components/subject-registration/
     MatCardModule,
     MatToolbarModule,
     MatFormFieldModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideAnimationsAsync(),

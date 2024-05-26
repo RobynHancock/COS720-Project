@@ -17,33 +17,12 @@ import { FirebaseDataService } from "./services/firebase-data.service";
 
 export class AuthService {
 
-    /*constructor(public fireauth: AngularFireAuth) {}
-
-    Register(email:string, password:string) {
-        return this.fireauth.createUserWithEmailAndPassword(email, password)
-            .then((result) => {
-                window.alert('Success');
-                console.log(result.user);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    }
-
-    Login(email: string, password:string) {
-        return this.fireauth.signInWithEmailAndPassword(email, password)
-            .then((result) => {
-                console.log(result);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    }*/
     userData : any;
     state: any=null;
     useremail: string ='';
     //user: User = new User();
     //submitted = false;
+    studentNumber = '';
 
     constructor(
         public router: Router, 
@@ -59,6 +38,7 @@ export class AuthService {
                 //this.state = user;
                 localStorage.setItem('user', JSON.stringify(this.userData));
                 JSON.parse(localStorage.getItem('user')!);
+                this.useremail = JSON.parse(localStorage.getItem('user.uid')!);
             }
             else 
             {
@@ -72,9 +52,14 @@ export class AuthService {
         return this.state !== null;
     }
 
+    getStudentNumber(): string {
+        return this.studentNumber;
+    }
+
     //Log in with Email/Password configuration
-    async SignIn(email: string, password: string) {
+    async SignIn(email: string, password: string, sn: string) {
         this.useremail = email;
+        this.studentNumber = sn;
         return this.fireAuth.signInWithEmailAndPassword(email, password)
             .then((result) => {
                 this.SetUserData(result.user);

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Subject } from '../../models/subjects.model';
 import { SubjectService } from '../../subject.service';
+import { AuthService } from '../../shared/auth.service';
 
 @Component({
   selector: 'app-add-subject',
@@ -12,7 +13,7 @@ export class AddSubjectComponent {
   subject: Subject = new Subject();
   submitted = false;
 
-  constructor(private subjectService: SubjectService) {}
+  constructor(private subjectService: SubjectService, public authService: AuthService) {}
 
   saveSubject(): void {
     this.subjectService.create(this.subject).then(() => {

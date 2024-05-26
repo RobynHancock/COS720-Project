@@ -1,24 +1,51 @@
-<div class="submit-form">
-    @if (!submitted) {
-        <div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" class="form-control" id="email" required [(ngModel)]="subreg.email" name="email" />
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="w3-bar w3-theme">
+      <a routerLink="/dashboard" class="w3-bar-item w3-button w3-padding-16">Home</a>
+      <a routerLink="/subject-registration" class="w3-bar-item w3-button w3-padding-16">Module Sign-Up</a>
+      <a routerLink="/add-subject" class="w3-bar-item w3-button w3-padding-16">Add Modules</a>
+      <a routerLink="/sign-in" class="w3-bar-item w3-button w3-padding-16" (click)="authService.SignOut()">Log Out</a>
+    </div>
+    <hr>
+    <div class="submit-form">
+    
+            <div>
+                <hr class="form-control" id="studentNumber" [(ngModel)]="subreg.studentNumber" value="subreg.studentNumber">
+                <div class="form-group">
+                    <label for="text">Module</label>
+                    <input type="text" class="form-control" id="module" required [(ngModel)]="subreg.subjects" name="module"/>
+                </div>
             </div>
+            <button (click)="saveSubjectRegistration()">Register</button>      
+            <hr>
+
+            <button (click)="newSubjectRegistration()">Reset</button>
         </div>
-        <div class="list row">
-            <div class="col-md-6">
-                <ul class="list group">
-                    @for (subject of subjects; track subject.key; let i = $index) {
-                        <p class="list-group-item">
-                            <mat-checkbox class="form-control" id="code" required [(ngModel)]="subject.code" name="code"
-                                [class.active]="i == currentIndex">{{subject.code}}
-                            </mat-checkbox>
-                        </p>
-                    }
-                </ul>
-                <button (click)="saveSubjectRegistration()">Register</button>                
+            <!--<div class="list row">
+                <div class="col-md-6">
+                    <ul class="list group">
+                        <!--@for (subject of subjects; track subject.key; let i = $index) {
+                            <p class="list-group-item">
+                                <mat-checkbox class="form-control" id={{subject.code}} required [(ngModel)]="subject.code" name="code"
+                                    [class.active]="i == currentIndex">{{subject.code}}
+                                </mat-checkbox>
+                            </p>
+                        }--
+                        <p *ngFor="let subject of subjects">
+                            <input type="checkbox" [(ngModel)]="subject.code" {{subject.code}}/> </p>
+                    </ul>
+                    <button (click)="saveSubjectRegistration()">Register</button>                
+                </div>
             </div>
-        </div>
-    }
-</div>
+        }--
+    </div>-->
+  </body>
+</html>

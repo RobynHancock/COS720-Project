@@ -27,6 +27,7 @@ import { AngularFireDatabaseModule} from '@angular/fire/compat/database'
 
 //My Components
 //import { SubjectsComponent } from './subjects/subjects.component';
+//import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
 
 import { MessagesComponent } from './messages/messages.component';
 
@@ -61,11 +62,11 @@ import { SubjectRegistrationComponent } from './components/subject-registration/
     SubjectsListComponent,
     SubjectDetailsComponent,
     VerifyEmailComponent,
-    GoogleSsoDirective,
     RequireAuthComponent,
     SignInComponent,
     SignUpComponent,
     SubjectRegistrationComponent,
+
   ],
   imports: [
     BrowserModule,
